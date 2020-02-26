@@ -1,0 +1,25 @@
+#include "modes.h"
+
+Modes::Modes()
+{
+
+}
+QString Modes::getMode(Mode mode)
+{
+    if (mode == Mode::Mode_Runtime)
+        return "runtime";
+    if (mode == Mode::Mode_Ordenary)
+        return "ordenary";
+    if (mode == Modes::Mode::Mode_Designtime)
+        return "designtime";
+}
+Modes::Mode Modes::getObject(QString tpp)
+{
+    if(tpp == "runtime")
+        return Modes::Mode::Mode_Runtime;
+    if(tpp == "ordenary")
+        return Modes::Mode::Mode_Ordenary;
+    if(tpp == "designtime")
+        return Modes::Mode::Mode_Designtime;
+
+}

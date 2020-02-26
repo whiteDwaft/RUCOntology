@@ -1,0 +1,22 @@
+#ifndef MODES_H
+#define MODES_H
+
+#include <QString>
+
+
+
+class Modes
+{
+public:
+    Modes();
+    enum class Mode
+    {
+       Mode_Runtime,
+       Mode_Designtime,
+       Mode_Ordenary
+    };
+    QString getMode(Mode mode);
+    Mode getObject(QString mode);
+};
+
+#endif // MODES_H

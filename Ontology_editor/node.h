@@ -1,0 +1,52 @@
+#ifndef NODE_H
+#define NODE_H
+#include "tpp.h"
+
+#include <QString>
+#include <vector>
+#include <ontology.h>
+using namespace std;
+class Ontology;
+class Node
+{
+public:
+    Node(QString node_name, vector <Node*> runtime_link_arr, vector <QString> runtime_arg_arr, vector <QString> runtime_func_arr,TPP::TPPs tpp);
+
+    void add_func(bool is_runtime,QString func_name);
+    void del_func(QString func_name);
+    void del_func(int func_index);
+    void change_func(QString old_func_name,QString new_func_name);
+
+    void add_arg(bool is_runtime,QString arg_name);
+    void del_arg(QString arg_name);
+    void del_arg(int arg_index);
+    void change_arg(QString old_arg_name,QString new_arg_name);
+// ____________________исправлю_________________
+    void add_link(Ontology ontlg,QString link_name,bool is_runtime);
+    void del_link(QString link_name);
+    void del_link(int link_index);
+    void change_link(QString old_link_name,QString new_link_name);
+
+
+
+    vector<QString> getArg_arr() ;
+    void setArg_arr(const vector<QString> &value);
+
+    vector<QString> getFunc_arr() ;
+    void setFunc_arr(const vector<QString> &value);
+
+//private:
+    QString node_name;
+    TPP::TPPs  tpp;
+    vector <Node*> runtime_link_arr;
+    vector <Node*> designtime_link_arr;
+    vector <QString> runtime_arg_arr;
+    vector <QString> runtime_func_arr;
+    vector <QString> designtime_arg_arr;
+    vector <QString> designtime_func_arr;
+
+    QString getNode_name() const;
+    void setNode_name(const QString &value);
+};
+
+#endif // NODE_H
